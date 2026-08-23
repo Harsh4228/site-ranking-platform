@@ -7,7 +7,7 @@ export const dynamic = "force-dynamic";
 
 export async function generateMetadata({ params }) {
   return {
-    title: `Best ${decodeURIComponent(params.category)} businesses — The Ledger`,
+    title: `Best ${decodeURIComponent(params.category)} businesses — GoSite`,
     description: `Top-ranked ${decodeURIComponent(params.category)} directories.`,
   };
 }

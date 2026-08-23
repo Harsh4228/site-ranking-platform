@@ -14,7 +14,7 @@ export async function generateMetadata({ params }) {
   const listing = await Listing.findById(params.id).select("name description").lean();
   if (!listing) return { title: "Not Found" };
   return {
-    title: `${listing.name} — The Ledger`,
+    title: `${listing.name} — GoSite`,
     description: listing.description || `View ${listing.name}'s rank, reviews, and visibility score.`,
   };
 }

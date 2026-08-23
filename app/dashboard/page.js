@@ -10,7 +10,7 @@ import ReferralSection from "./ReferralSection";
 export const dynamic = "force-dynamic";
 
 export async function generateMetadata() {
-  return { title: "Dashboard — The Ledger" };
+  return { title: "Dashboard — GoSite" };
 }
 
 export default async function DashboardPage() {

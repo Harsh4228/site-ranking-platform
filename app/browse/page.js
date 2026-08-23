@@ -6,7 +6,7 @@ export const dynamic = "force-dynamic";
 
 export async function generateMetadata() {
   return {
-    title: "Browse Directories — The Ledger",
+    title: "Browse Directories — GoSite",
     description: "Browse ranked business directories by city and category.",
   };
 }
