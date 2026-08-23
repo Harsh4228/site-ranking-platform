@@ -34,12 +34,13 @@ export default function RootLayout({ children }) {
             <SearchBar />
             <nav className="header-nav">
               <a href="/browse" className="nav-link">Browse</a>
+              <a href="/buy" className="nav-link" style={{ color: "var(--gold)" }}>Buy Template</a>
               <AuthNav />
             </nav>
           </header>
           <main>{children}</main>
           <footer className="site-footer">
-            GoSite — Trusted local business rankings. Rank Score = Trust + Visibility.
+            GoSite — Trusted local business rankings. <a href="/buy" style={{ color: "var(--gold)" }}>Buy this template — $99</a>
           </footer>
         </Providers>
       </body>

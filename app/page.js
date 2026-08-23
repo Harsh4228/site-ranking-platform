@@ -35,7 +35,7 @@ export default async function HomePage() {
           not who pays the most. Businesses boost visibility, but never buy the ranking itself.
         </p>
         <div className="l-hero-cta">
-          <a href="/auth/signin" className="l-btn-primary">List your business — free</a>
+          <a href="/promote" className="l-btn-primary">Promote your business</a>
           <a href="/browse" className="l-btn-secondary">Browse directories</a>
         </div>
         <div className="l-hero-proof">
