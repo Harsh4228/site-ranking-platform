@@ -6,6 +6,7 @@ import { notFound } from "next/navigation";
 import ListingActions from "./ListingActions";
 import SubscriptionPanel from "./SubscriptionPanel";
 import ClaimButton from "./ClaimButton";
+import ShareButtons from "./ShareButtons";
 
 export const dynamic = "force-dynamic";
 
@@ -35,8 +36,28 @@ export default async function ListingPage({ params }) {
 
   const sponsored = listing.subscriptionActive || listing.recentLeadSpend > 0;
 
+  // Schema.org structured data for Google rich results
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    name: listing.name,
+    description: listing.description || undefined,
+    address: listing.address ? { "@type": "PostalAddress", streetAddress: listing.address } : undefined,
+    telephone: listing.phone || undefined,
+    url: listing.website || `https://gosite.lol/listings/${listing._id}`,
+    aggregateRating: listing.reviewCount > 0 ? {
+      "@type": "AggregateRating",
+      ratingValue: listing.avgRating.toFixed(1),
+      reviewCount: listing.reviewCount,
+      bestRating: "5",
+      worstRating: "1",
+    } : undefined,
+  };
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+
       {index && (
         <a href={`/indexes/${index.slug}`} className="back-link">
           ← {index.name}
@@ -98,6 +119,8 @@ export default async function ListingPage({ params }) {
       </div>
 
       <ClaimButton listingId={listing._id.toString()} ownerId={listing.ownerId?.toString() || null} />
+
+      <ShareButtons name={listing.name} listingId={listing._id.toString()} />
 
       <ListingActions listing={JSON.parse(JSON.stringify(listing))} />
 

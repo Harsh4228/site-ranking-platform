@@ -862,3 +862,15 @@ button:disabled { opacity: 0.45; cursor: not-allowed; }
   border-radius: var(--radius-sm); color: var(--ivory-dim); padding: 8px 10px;
   font-size: 0.78rem; font-family: var(--font-mono), monospace;
 }
+
+/* ---- Share buttons ---- */
+.share-buttons {
+  display: flex; align-items: center; gap: 6px; margin: 12px 0;
+}
+.share-label { font-size: 0.82rem; color: var(--ivory-dim); margin-right: 4px; }
+.share-btn {
+  background: var(--ink-panel); border: 1px solid var(--ink-line);
+  border-radius: var(--radius-sm); padding: 6px 10px; font-size: 1rem;
+  cursor: pointer; transition: border-color 0.15s; margin: 0;
+}
+.share-btn:hover { border-color: var(--gold-dim); }
