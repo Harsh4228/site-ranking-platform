@@ -13,11 +13,11 @@ const body = Inter({ subsets: ["latin"], variable: "--font-body" });
 const mono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-mono" });
 
 export const metadata = {
-  title: "The Ledger — Ranked Local Directories",
-  description: "Trust-scored, transparently ranked business directories. Rank Score = Trust Score (earned) + Visibility Score (paid).",
+  title: "GoSite — Find Trusted Local Businesses",
+  description: "GoSite — Find and rank trusted local businesses near you. Real reviews, transparent scoring.",
   openGraph: {
-    title: "The Ledger — Ranked Local Directories",
-    description: "Trust-scored, transparently ranked business directories.",
+    title: "GoSite — Find Trusted Local Businesses",
+    description: "Find and rank trusted local businesses near you.",
     type: "website",
   },
 };
@@ -29,7 +29,7 @@ export default function RootLayout({ children }) {
         <Providers>
           <header className="site-header">
             <a href="/" className="brand">
-              <span className="brand-mark">§</span> The Ledger
+              <span className="brand-mark">⚡</span> GoSite
             </a>
             <SearchBar />
             <nav className="header-nav">
@@ -39,7 +39,7 @@ export default function RootLayout({ children }) {
           </header>
           <main>{children}</main>
           <footer className="site-footer">
-            Rank Score = Trust Score (earned) + Visibility Score (paid). Sponsored placement is always labeled.
+            GoSite — Trusted local business rankings. Rank Score = Trust + Visibility.
           </footer>
         </Providers>
       </body>

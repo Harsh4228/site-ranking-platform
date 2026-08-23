@@ -26,14 +26,13 @@ export default async function HomePage() {
     <div className="landing">
       {/* ---- Hero ---- */}
       <section className="l-hero">
-        <div className="l-hero-badge">Trusted ranking platform</div>
+        <div className="l-hero-badge">India's trusted business directory</div>
         <h1 className="display l-hero-title">
-          Get ranked.<br />Get found.<br /><span className="l-gold">Get customers.</span>
+          Find the best.<br />Rank the best.<br /><span className="l-gold">Be the best.</span>
         </h1>
         <p className="l-hero-sub">
-          The only directory where your position is <strong>earned by trust</strong> and
-          <strong> boosted by visibility</strong> — never bought outright.
-          Customers find businesses they can actually trust.
+          <strong>GoSite</strong> ranks local businesses by <strong>real reviews + verified trust</strong> — 
+          not who pays the most. Businesses boost visibility, but never buy the ranking itself.
         </p>
         <div className="l-hero-cta">
           <a href="/auth/signin" className="l-btn-primary">List your business — free</a>
