@@ -34,6 +34,7 @@ export default function RootLayout({ children }) {
             <SearchBar />
             <nav className="header-nav">
               <a href="/browse" className="nav-link">Browse</a>
+              <a href="/tools" className="nav-link">Free Tools</a>
               <a href="/buy" className="nav-link" style={{ color: "var(--gold)" }}>Buy Template</a>
               <AuthNav />
             </nav>
