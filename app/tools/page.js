@@ -7,10 +7,10 @@ export async function generateMetadata() {
 
 export default function ToolsPage() {
   const tools = [
-    { name: "Invoice Generator", desc: "Create professional GST invoices in seconds. Print or save as PDF.", href: "/tools/invoice", icon: "📄", tag: "Most popular" },
-    { name: "GST Calculator", desc: "Calculate GST with CGST/SGST breakup. Inclusive and exclusive modes.", href: "/tools/gst", icon: "🧮", tag: null },
-    { name: "Business Name Generator", desc: "AI-powered business name ideas for your industry. Coming soon.", href: "#", icon: "💡", tag: "Coming soon" },
-    { name: "QR Code Generator", desc: "Create QR codes for your business card, WhatsApp, or UPI. Coming soon.", href: "#", icon: "📱", tag: "Coming soon" },
+    { name: "Business Link Page", desc: "Create a beautiful one-page business card with WhatsApp, links, and contact info. Like Linktree for businesses.", href: "/tools/bizlink", icon: "⚡", tag: "Most popular" },
+    { name: "WhatsApp Link Generator", desc: "Create a click-to-chat link with pre-filled message + QR code. Perfect for business cards and social bios.", href: "/tools/whatsapp-link", icon: "💬", tag: "Free" },
+    { name: "Invoice Generator", desc: "Create professional GST invoices in seconds. Print or save as PDF.", href: "/tools/invoice", icon: "📄", tag: "Free" },
+    { name: "GST Calculator", desc: "Calculate GST with CGST/SGST breakup. Inclusive and exclusive modes.", href: "/tools/gst", icon: "🧮", tag: "Free" },
   ];
 
   return (
