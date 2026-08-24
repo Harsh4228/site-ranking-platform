@@ -18,8 +18,14 @@ export const dynamic = "force-dynamic";
 const TIER_PRICES = { 1: 5, 2: 15, 3: 30, 4: 50 };
 const PERIOD_DAYS = 30;
 
-// POST /api/subscriptions — purchase or upgrade a subscription (Path A pricing)
+// POST /api/subscriptions — internal only, activated by payment verification
 export async function POST(req) {
+  // Block direct access — subscriptions must go through /api/pay/order + /api/pay/verify
+  const adminKey = req.headers.get("x-admin-key");
+  if (adminKey !== process.env.NEXTAUTH_SECRET) {
+    return NextResponse.json({ error: "Subscriptions require payment. Use the Subscribe button on the listing page." }, { status: 403 });
+  }
+
   const ipHash = getIpHash(req);
   const limit = checkRateLimit(`sub:create:${ipHash}`, { windowMs: 60 * 1000, limit: 5 });
   if (!limit.ok) {

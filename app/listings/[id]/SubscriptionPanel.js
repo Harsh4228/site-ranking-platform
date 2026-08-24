@@ -61,25 +61,12 @@ export default function SubscriptionPanel({ listing }) {
     const data = await res.json();
 
     if (!res.ok) {
-      if (data.fallback) {
-        // Razorpay not configured — use direct activation for testing
-        const fallbackRes = await fetch("/api/subscriptions", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ listingId: listing._id, tier }),
-        });
-        const fallbackData = await fallbackRes.json();
-        setBusy(null);
-        if (!fallbackRes.ok) {
-          setError(fallbackData.error || "Something went wrong");
-          return;
-        }
-        setSuccess(`Subscribed! Visibility boost active for 30 days.`);
-        setTimeout(() => window.location.reload(), 800);
-        return;
-      }
       setBusy(null);
-      setError(data.error || "Something went wrong");
+      if (data.fallback) {
+        setError("Payment system is being configured. Please try again shortly.");
+      } else {
+        setError(data.error || "Something went wrong");
+      }
       return;
     }
 
