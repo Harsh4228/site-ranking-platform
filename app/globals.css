@@ -874,3 +874,108 @@ button:disabled { opacity: 0.45; cursor: not-allowed; }
   cursor: pointer; transition: border-color 0.15s; margin: 0;
 }
 .share-btn:hover { border-color: var(--gold-dim); }
+
+/* ======= FULL MOBILE RESPONSIVE ======= */
+@media (max-width: 768px) {
+  main { padding: 20px 14px 60px; }
+
+  /* Header */
+  .site-header { padding: 10px 14px; flex-wrap: wrap; gap: 8px; }
+  .brand { font-size: 1.1rem; }
+  .header-nav { gap: 2px; }
+  .nav-link { font-size: 0.72rem; padding: 4px 6px; }
+  .auth-link { font-size: 0.7rem; padding: 3px 6px; }
+  .search-wrap { max-width: 140px; margin: 0 6px; order: 3; flex-basis: 100%; }
+  .search-input { font-size: 0.78rem; padding: 6px 12px; }
+
+  /* Landing hero */
+  .l-hero { padding: 32px 0 28px; }
+  .l-hero-title { font-size: 2rem; }
+  .l-hero-sub { font-size: 0.9rem; }
+  .l-hero-cta { flex-direction: column; align-items: stretch; }
+  .l-btn-primary, .l-btn-secondary { text-align: center; padding: 14px 20px; font-size: 0.9rem; }
+  .l-hero-proof { gap: 16px; }
+  .l-proof-value { font-size: 1.2rem; }
+
+  /* Sections */
+  .l-section { padding: 32px 0; }
+  .l-section-title { font-size: 1.4rem; }
+  .l-steps { grid-template-columns: 1fr; }
+  .l-features { grid-template-columns: 1fr; }
+  .l-pricing { grid-template-columns: 1fr; }
+
+  /* Index cards */
+  .index-grid { grid-template-columns: 1fr; }
+  .index-card { padding: 16px; }
+
+  /* Leaderboard rows */
+  .row { grid-template-columns: 42px 1fr; gap: 10px; padding: 12px 14px; }
+  .scores { display: none; }
+  .tile { width: 36px; height: 36px; font-size: 0.9rem; }
+  .row .name { font-size: 0.9rem; }
+  .row .sub { font-size: 0.75rem; }
+
+  /* Listing detail */
+  .listing-hero h1 { font-size: 1.5rem; }
+  .scores-grid { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .score-card { padding: 12px 8px; }
+  .score-card-value { font-size: 1.3rem; }
+  .analytics-bar { flex-wrap: wrap; font-size: 0.75rem; }
+  .listing-info { padding: 10px 12px; }
+  .listing-info-row { font-size: 0.82rem; }
+
+  /* Subscription tiers */
+  .tier-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .tier-price { font-size: 1.3rem; }
+  .subscription-panel { padding: 16px; }
+
+  /* Dashboard */
+  .admin-stats-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .admin-stat-value { font-size: 1.3rem; }
+  .dashboard-card { padding: 16px; }
+  .dashboard-card-header { flex-direction: column; gap: 8px; }
+  .dashboard-metrics { gap: 10px; }
+
+  /* Forms */
+  .panel { padding: 16px; }
+  button { padding: 12px 16px; font-size: 0.85rem; }
+
+  /* Chat */
+  .chat-panel { max-height: 400px; }
+  .index-bottom-grid { grid-template-columns: 1fr; }
+
+  /* Browse */
+  .browse-tags { gap: 6px; }
+  .browse-tag { padding: 5px 12px; font-size: 0.82rem; }
+
+  /* Tables */
+  .admin-table { font-size: 0.75rem; }
+  .admin-table th, .admin-table td { padding: 6px 6px; }
+
+  /* Tools */
+  .tools-grid-2col { grid-template-columns: 1fr !important; }
+
+  /* Footer */
+  .site-footer { padding: 20px 14px; font-size: 0.68rem; }
+
+  /* Embed */
+  .embed-section { padding: 16px; }
+  .embed-code code { font-size: 0.65rem; }
+
+  /* Share */
+  .share-buttons { flex-wrap: wrap; }
+
+  /* Referral */
+  .referral-link-box { flex-direction: column; }
+  .referral-stats { flex-wrap: wrap; gap: 12px; }
+}
+
+@media (max-width: 480px) {
+  .l-hero-title { font-size: 1.6rem; }
+  .scores-grid { grid-template-columns: 1fr; }
+  .tier-grid { grid-template-columns: 1fr; }
+  .admin-stats-grid { grid-template-columns: 1fr; }
+  .l-hero-proof { flex-direction: column; gap: 12px; }
+  .l-price-amount { font-size: 2rem; }
+  .search-wrap { display: none; }
+}

@@ -37,7 +37,7 @@ export default function BizLinkPage() {
         <strong style={{ color: "var(--gold)" }}> Free forever.</strong>
       </p>
 
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20, marginTop: 28 }}>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: 20, marginTop: 28 }}>
         {/* Form */}
         <form className="panel" onSubmit={generate} style={{ marginTop: 0 }}>
           <h3 className="display" style={{ fontSize: "1rem" }}>Your Business Info</h3>

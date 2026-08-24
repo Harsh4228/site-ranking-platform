@@ -38,7 +38,7 @@ export default function InvoicePage() {
         </p>
       </div>
 
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, marginTop: 24 }} className="no-print">
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 16, marginTop: 24 }} className="no-print">
         <div className="panel">
           <h3 className="display" style={{ fontSize: "1rem" }}>From (Your Business)</h3>
           <label>Business Name</label>
