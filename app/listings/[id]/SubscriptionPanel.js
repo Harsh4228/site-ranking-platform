@@ -2,10 +2,10 @@
 import { useState, useEffect } from "react";
 
 const TIERS = [
-  { tier: 1, name: "Starter", price: 5, boost: "+15 visibility", desc: "Basic boost for new listings" },
-  { tier: 2, name: "Growth", price: 15, boost: "+30 visibility", desc: "2× visibility for growing businesses" },
-  { tier: 3, name: "Pro", price: 30, boost: "+45 visibility", desc: "Serious competitive edge" },
-  { tier: 4, name: "Leader", price: 50, boost: "+60 visibility", desc: "Maximum visibility boost" },
+  { tier: 1, name: "Starter", price: "₹499", boost: "+15 visibility", desc: "Basic boost for new listings" },
+  { tier: 2, name: "Growth", price: "₹999", boost: "+30 visibility", desc: "2× visibility for growing businesses" },
+  { tier: 3, name: "Pro", price: "₹1,999", boost: "+45 visibility", desc: "Serious competitive edge" },
+  { tier: 4, name: "Leader", price: "₹3,999", boost: "+60 visibility", desc: "Maximum visibility boost" },
 ];
 
 export default function SubscriptionPanel({ listing }) {
@@ -52,8 +52,8 @@ export default function SubscriptionPanel({ listing }) {
     setError(null);
     setSuccess(null);
 
-    // Try Stripe checkout first; falls back to direct activation if Stripe isn't configured
-    const res = await fetch("/api/checkout/subscription", {
+    // Create Razorpay order
+    const res = await fetch("/api/pay/order", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ listingId: listing._id, tier }),
@@ -61,8 +61,8 @@ export default function SubscriptionPanel({ listing }) {
     const data = await res.json();
 
     if (!res.ok) {
-      // If Stripe isn't configured, use direct activation
       if (data.fallback) {
+        // Razorpay not configured — use direct activation for testing
         const fallbackRes = await fetch("/api/subscriptions", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -74,7 +74,7 @@ export default function SubscriptionPanel({ listing }) {
           setError(fallbackData.error || "Something went wrong");
           return;
         }
-        setSuccess(`Subscribed to Tier ${tier} — visibility boost active for 30 days! (demo mode)`);
+        setSuccess(`Subscribed! Visibility boost active for 30 days.`);
         setTimeout(() => window.location.reload(), 800);
         return;
       }
@@ -83,8 +83,46 @@ export default function SubscriptionPanel({ listing }) {
       return;
     }
 
-    // Redirect to Stripe Checkout
-    window.location.href = data.url;
+    // Open Razorpay Checkout popup
+    const script = document.createElement("script");
+    script.src = "https://checkout.razorpay.com/v1/checkout.js";
+    script.onload = () => {
+      const options = {
+        key: data.keyId,
+        amount: data.amount,
+        currency: data.currency,
+        name: "GoSite",
+        description: `${data.tierName} Visibility Boost — 30 days`,
+        order_id: data.orderId,
+        handler: async function (response) {
+          // Verify payment on server
+          const verifyRes = await fetch("/api/pay/verify", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              razorpay_order_id: response.razorpay_order_id,
+              razorpay_payment_id: response.razorpay_payment_id,
+              razorpay_signature: response.razorpay_signature,
+              listingId: listing._id,
+              tier,
+            }),
+          });
+          const verifyData = await verifyRes.json();
+          setBusy(null);
+          if (verifyData.success) {
+            setSuccess("Payment successful! Visibility boost activated.");
+            setTimeout(() => window.location.reload(), 800);
+          } else {
+            setError(verifyData.error || "Payment verification failed");
+          }
+        },
+        modal: { ondismiss: () => setBusy(null) },
+        theme: { color: "#D4A843" },
+      };
+      const rzp = new window.Razorpay(options);
+      rzp.open();
+    };
+    document.body.appendChild(script);
   };
 
   const expiresAt = listing.subscriptionExpiresAt
@@ -111,7 +149,7 @@ export default function SubscriptionPanel({ listing }) {
           return (
             <div key={t.tier} className={`tier-card ${isCurrent ? "tier-current" : ""}`}>
               <div className="tier-name">{t.name}</div>
-              <div className="tier-price">${t.price}<span className="tier-period">/mo</span></div>
+              <div className="tier-price">{t.price}<span className="tier-period">/mo</span></div>
               <div className="tier-boost">{t.boost}</div>
               <div className="tier-desc">{t.desc}</div>
               <button
