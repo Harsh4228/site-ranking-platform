@@ -22,6 +22,10 @@ export async function GET(req, { params }) {
       return NextResponse.json({ error: "Listing not found" }, { status: 404 });
     }
 
+    if (listing.ownerId && String(listing.ownerId) !== session.user.id && session.user.role !== "admin") {
+      return NextResponse.json({ error: "Not your listing" }, { status: 403 });
+    }
+
     // Competitors in same index
     const competitors = await Listing.find({
       indexId: listing.indexId,

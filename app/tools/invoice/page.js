@@ -74,7 +74,7 @@ export default function InvoicePage() {
           </div>
         </div>
         {invoice.items.map((item, i) => (
-          <div key={i} style={{ display: "grid", gridTemplateColumns: "2fr 80px 120px 40px", gap: 8, marginTop: 8, alignItems: "end" }}>
+          <div key={i} style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(120px, 1fr))", gap: 8, marginTop: 8, alignItems: "end" }}>
             <div>
               <label style={{ margin: 0, fontSize: "0.72rem" }}>Description</label>
               <input value={item.desc} onChange={(e) => updateItem(i, "desc", e.target.value)} placeholder="Service or product" />
@@ -99,7 +99,7 @@ export default function InvoicePage() {
           </div>
           <div>
             <label style={{ margin: 0 }}>Notes</label>
-            <input value={invoice.notes} onChange={(e) => setInvoice({ ...invoice, notes: e.target.value })} placeholder="Payment terms, bank details…" style={{ width: 400 }} />
+            <input value={invoice.notes} onChange={(e) => setInvoice({ ...invoice, notes: e.target.value })} placeholder="Payment terms, bank details\u2026" style={{ minWidth: 200 }} />
           </div>
         </div>
       </div>

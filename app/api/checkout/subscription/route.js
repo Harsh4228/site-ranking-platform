@@ -54,7 +54,7 @@ export async function POST(req) {
 
     const tierInfo = TIER_CONFIG[tier];
     const stripe = getStripe();
-    const origin = req.headers.get("origin") || "http://localhost:3000";
+    const origin = process.env.NEXTAUTH_URL || req.headers.get("origin") || "https://gosite.lol";
 
     const session = await stripe.checkout.sessions.create({
       mode: "payment",

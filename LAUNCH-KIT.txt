@@ -1,0 +1,131 @@
+===============================================
+GOSITE.LOL — SOCIAL MEDIA LAUNCH KIT
+Post these on your social media to get users
+===============================================
+
+=== WHATSAPP STATUS / GROUPS ===
+
+Message 1 (share in business groups):
+🔥 Free tool alert! Create your WhatsApp click-to-chat link in 2 seconds.
+Add it to your Instagram bio, business card, or website.
+No signup needed. 100% free.
+👉 https://gosite.lol/tools/whatsapp-link
+
+Message 2 (share in entrepreneur groups):
+💡 Built a free Linktree alternative for Indian businesses — with WhatsApp-first design.
+Create your business page in 30 seconds. Share it anywhere.
+👉 https://gosite.lol/tools/bizlink
+
+Message 3 (share in CA/accountant groups):
+📄 Free GST Invoice Generator — no signup, no watermark.
+Create professional invoices in seconds. Save as PDF.
+👉 https://gosite.lol/tools/invoice
+
+=== TWITTER/X ===
+
+Tweet 1:
+Built a free WhatsApp link generator for businesses 💬
+Create click-to-chat links + QR codes in 2 seconds.
+No signup. No ads.
+→ gosite.lol/tools/whatsapp-link
+#IndianStartup #SmallBusiness #FreeTools
+
+Tweet 2:
+I built a free Linktree alternative for Indian businesses ⚡
+WhatsApp-first. Business hours. Contact info. All in one page.
+→ gosite.lol/tools/bizlink
+#SideProject #BuildInPublic #MadeInIndia
+
+Tweet 3:
+Launched GoSite — a business directory where rankings are transparent 📊
+Rank Score = Trust (reviews) + Visibility (paid)
+Payment boosts visibility, never buys the ranking itself.
+→ gosite.lol
+#Startup #SaaS
+
+=== REDDIT ===
+
+Post on r/SideProject:
+Title: I built a free WhatsApp link generator + business page builder for Indian SMBs
+Body:
+Hey! I built gosite.lol — a suite of free tools for small businesses:
+- WhatsApp Link Generator (create click-to-chat links + QR codes)
+- Business Link Page (like Linktree but for local businesses)  
+- GST Invoice Generator
+- GST Calculator
+
+The main platform is a transparent business directory where rankings come from real reviews, not just payment.
+
+Built with Next.js 14, MongoDB, Stripe. Live at gosite.lol
+Would love feedback!
+
+Post on r/webdev:
+Title: Show: Built a full-stack business directory SaaS with Next.js 14 + MongoDB + Stripe
+Body:
+42 routes, auth, dashboards, Stripe payments, referral system, embeddable badges, programmatic SEO pages, real-time chat — all in one Next.js app.
+
+Live: gosite.lol
+Source: github.com/Harsh4228/site-ranking-platform
+
+Tech stack: Next.js 14, MongoDB + Mongoose, NextAuth, Stripe Checkout + Webhooks
+
+Happy to answer questions about the architecture!
+
+Post on r/Entrepreneur:
+Title: Free tools for Indian business owners — WhatsApp link generator, invoice maker, business page builder
+Body:
+Built gosite.lol with free tools that every small business needs:
+1. WhatsApp Link Generator — gosite.lol/tools/whatsapp-link
+2. Business Link Page — gosite.lol/tools/bizlink  
+3. Invoice Generator — gosite.lol/tools/invoice
+
+All free, no signup needed. Would love feedback from business owners!
+
+=== LINKEDIN ===
+
+Post:
+🚀 Just launched GoSite — free business tools for Indian entrepreneurs
+
+I noticed small business owners struggle with basic digital presence:
+- No easy way to create a WhatsApp contact link
+- No simple business page to share
+- No free invoice generator
+
+So I built gosite.lol with all of these — 100% free:
+→ WhatsApp Link Generator: gosite.lol/tools/whatsapp-link
+→ Business Link Page: gosite.lol/tools/bizlink
+→ Invoice Generator: gosite.lol/tools/invoice
+
+Would love to hear from business owners — what other tools do you need?
+
+#Entrepreneurship #SmallBusiness #MadeInIndia #Startup
+
+=== INSTAGRAM ===
+
+Caption:
+⚡ Free business tools — no signup needed
+
+🔗 WhatsApp Link Generator — create click-to-chat links
+📄 Invoice Generator — professional GST invoices  
+📊 Business Page — your own Linktree alternative
+
+Link in bio 👆
+gosite.lol/tools
+
+#SmallBusiness #FreeTools #IndianBusiness #Entrepreneur #StartupIndia #BusinessTools #WhatsApp
+
+=== PRODUCT HUNT (submit at producthunt.com/posts/new) ===
+
+Name: GoSite
+Tagline: Free business tools + transparent ranked directories for Indian SMBs
+Description:
+GoSite is a suite of free tools for Indian businesses:
+- WhatsApp Link Generator with QR codes
+- Business Link Page (Linktree alternative)
+- GST Invoice Generator & Calculator
+- Ranked business directory with transparent scoring
+
+Built with Next.js 14, MongoDB, Stripe. Open source on GitHub.
+
+URL: https://gosite.lol
+Topics: Small Business, Free Tools, India, SaaS

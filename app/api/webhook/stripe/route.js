@@ -12,7 +12,6 @@ const THIRTY_DAYS_MS = 30 * 24 * 60 * 60 * 1000;
 
 // POST /api/webhook/stripe — handle Stripe webhook events
 export async function POST(req) {
-  const stripe = getStripe();
   const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET;
 
   if (!webhookSecret) {
@@ -24,8 +23,7 @@ export async function POST(req) {
   const sig = req.headers.get("stripe-signature");
 
   let event;
-  try {
-    event = stripe.webhooks.constructEvent(body, sig, webhookSecret);
+  try {    const stripe = getStripe();    event = stripe.webhooks.constructEvent(body, sig, webhookSecret);
   } catch (err) {
     console.error("Webhook signature verification failed:", err.message);
     return NextResponse.json({ error: "Invalid signature" }, { status: 400 });

@@ -6,6 +6,7 @@ import Referral from "@/models/Referral";
 import Listing from "@/models/Listing";
 import Subscription from "@/models/Subscription";
 import { recomputeListingScores } from "@/lib/scoring";
+import { isObjectId } from "@/lib/api";
 
 export const dynamic = "force-dynamic";
 
@@ -29,7 +30,7 @@ export async function GET(req) {
     const nextRewardAt = REWARD_REFERRALS_NEEDED - (totalReferred % REWARD_REFERRALS_NEEDED);
 
     // Generate referral link
-    const origin = req.headers.get("origin") || "http://localhost:3000";
+    const origin = process.env.NEXTAUTH_URL || req.headers.get("origin") || "https://gosite.lol";
     const referralLink = `${origin}/auth/signin?ref=${session.user.id}`;
 
     return NextResponse.json({
@@ -58,6 +59,7 @@ export async function POST(req) {
 
     if (!referrerId || !referredUserId) return NextResponse.json({ error: "Missing fields" }, { status: 400 });
     if (referrerId === referredUserId) return NextResponse.json({ error: "Can't refer yourself" }, { status: 400 });
+    if (!isObjectId(referrerId) || !isObjectId(referredUserId)) return NextResponse.json({ error: "Invalid IDs" }, { status: 400 });
 
     const existing = await Referral.findOne({ referredUserId });
     if (existing) return NextResponse.json({ ok: true, alreadyRecorded: true });

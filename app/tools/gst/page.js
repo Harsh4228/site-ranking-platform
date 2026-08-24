@@ -50,7 +50,7 @@ export default function GSTCalculatorPage() {
 
       {amt > 0 && (
         <div className="panel" style={{ maxWidth: 500, marginTop: 16 }}>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))", gap: 12 }}>
             <div className="admin-stat-card">
               <div className="admin-stat-value" style={{ fontSize: "1.2rem" }}>₹{base.toLocaleString("en-IN", { maximumFractionDigits: 2 })}</div>
               <div className="admin-stat-label">Base Amount</div>

@@ -1,7 +1,8 @@
 "use client";
 
 export default function ShareButtons({ name, listingId }) {
-  const url = `https://gosite.lol/listings/${listingId}`;
+  const base = typeof window !== "undefined" ? window.location.origin : "https://gosite.lol";
+  const url = `${base}/listings/${listingId}`;
   const text = `Check out ${name} on GoSite — ranked by real reviews!`;
 
   const share = (platform) => {

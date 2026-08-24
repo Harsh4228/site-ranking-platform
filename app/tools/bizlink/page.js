@@ -62,7 +62,7 @@ export default function BizLinkPage() {
 
           <h3 className="display" style={{ fontSize: "1rem", marginTop: 20 }}>Links</h3>
           {biz.links.map((link, i) => (
-            <div key={i} style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8, marginTop: 6 }}>
+            <div key={i} style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))", gap: 8, marginTop: 6 }}>
               <input value={link.label} onChange={(e) => updateLink(i, "label", e.target.value)} placeholder="Label (e.g. Website)" />
               <input value={link.url} onChange={(e) => updateLink(i, "url", e.target.value)} placeholder="https://..." />
             </div>
