@@ -13,6 +13,13 @@ export async function GET() {
   const urls = [
     { loc: BASE, priority: "1.0", changefreq: "daily" },
     { loc: `${BASE}/browse`, priority: "0.9", changefreq: "daily" },
+    { loc: `${BASE}/tools`, priority: "0.9", changefreq: "weekly" },
+    { loc: `${BASE}/tools/bizlink`, priority: "0.9", changefreq: "weekly" },
+    { loc: `${BASE}/tools/whatsapp-link`, priority: "0.9", changefreq: "weekly" },
+    { loc: `${BASE}/tools/invoice`, priority: "0.8", changefreq: "weekly" },
+    { loc: `${BASE}/tools/gst`, priority: "0.8", changefreq: "weekly" },
+    { loc: `${BASE}/promote`, priority: "0.8", changefreq: "monthly" },
+    { loc: `${BASE}/buy`, priority: "0.7", changefreq: "monthly" },
     { loc: `${BASE}/auth/signin`, priority: "0.5", changefreq: "monthly" },
   ];
 
@@ -23,6 +30,16 @@ export async function GET() {
     urls.push({ loc: `${BASE}/browse/city/${encodeURIComponent(city)}`, priority: "0.8", changefreq: "daily" });
   }
   for (const cat of categories) {
+    urls.push({ loc: `${BASE}/browse/category/${encodeURIComponent(cat)}`, priority: "0.8", changefreq: "daily" });
+  }
+
+  // Programmatic SEO: /best/[category]/[city] pages
+  for (const cat of categories) {
+    for (const city of cities) {
+      const slug = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+      urls.push({ loc: `${BASE}/best/${slug(cat)}/${slug(city)}`, priority: "0.85", changefreq: "daily" });
+    }
+  }
     urls.push({ loc: `${BASE}/browse/category/${encodeURIComponent(cat)}`, priority: "0.8", changefreq: "daily" });
   }
 

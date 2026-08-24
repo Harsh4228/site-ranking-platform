@@ -2,6 +2,7 @@ import { Fraunces, Inter, JetBrains_Mono } from "next/font/google";
 import Providers from "./Providers";
 import SearchBar from "./SearchBar";
 import AuthNav from "./AuthNav";
+import Tracker from "./Tracker";
 import "./globals.css";
 
 const display = Fraunces({
@@ -39,6 +40,7 @@ export default function RootLayout({ children }) {
               <AuthNav />
             </nav>
           </header>
+          <Tracker />
           <main>{children}</main>
           <footer className="site-footer">
             GoSite — Trusted local business rankings. <a href="/buy" style={{ color: "var(--gold)" }}>Buy this template — $99</a>
